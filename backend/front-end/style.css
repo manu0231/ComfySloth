@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-container {
+    @apply flex justify-end items-center h-screen pr-40;
+}
+
+h1 {
+    @apply text-2xl;
+}
+
+.form {
+    @apply bg-[#f2f2f2] rounded-lg w-[480px] m-0 px-5 py-2;
+}
+
+.form-label {
+    @apply capitalize inline-block w-full mb-2 text-xl;
+}
+
+.email-input,
+.password-input {
+    @apply inline-block w-full px-3 py-2 mx-0 my-1 rounded-lg box-border;
+}
+
+.submit-form {
+    @apply bg-[#4CAF50] hover:bg-[#45a049] w-full text-white my-2 p-2 rounded-lg;
+}
