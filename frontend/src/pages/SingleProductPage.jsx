@@ -1,4 +1,4 @@
-import React, { useEffect ,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { single_product_url as url } from '../utils/constants'
@@ -13,16 +13,12 @@ import {
 } from '../components'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import ReviewPage from './ReviewPage'
 
-import Reviews from '../components/reviews'
-import ReviewForm from '../components/ReviewForm'
+
 
 const SingleProductPage = () => {
-
-
-
-
-  const { id } = useParams()
+ const { id } = useParams()
   const navigate = useNavigate()
   // console.log(id)
   const {
@@ -34,6 +30,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(id)
+    // console.log(product);
   }, [id])
 
   useEffect(() => {
@@ -42,14 +39,15 @@ const SingleProductPage = () => {
         navigate('/')
       }, 3000)
     }
-  }, [])
+  }, [error])
+
   if (loading) {
     return <Loading />
   }
   if (error) {
     return <Error />
   }
-  // console.log(product)
+
   const {
     name,
     company,
@@ -57,47 +55,46 @@ const SingleProductPage = () => {
     rating,
     image,
     id: PID,
-    numOfReviews: reviews,
+    numOfReviews,
     stock,
     colors,
     description,
   } = product
 
-
   return (
-    <Wrapper>
-      <PageHero title={name} product={product} />
-    
-      <div className="section section-center page">
-        <Link to="/products" className="btn">
-          back to products
-        </Link>
-        
-        <div className="product-center">
-          <ProductImages image={image} />
-          <section className="content">
-            <h2>{name}</h2>
+    <>
+      <Wrapper>
+        <PageHero title={name} product={product} />
+        <div className="section section-center page">
+          <Link to="/products" className="btn">
+            back to products
+          </Link>
+          <div className="product-center">
+            <ProductImages image={image} />
+            <section className="content">
+              <h2>{name}</h2>
 
-            <Stars rating={rating} reviews={3} />
-            <h5 className="price">{formatPrice(price)}</h5>
-            <p>{description}</p>
-            <p className="info">
-              <span>SKU:</span> {PID}
-            </p>
-            <p className="info">
-              <span>Available:</span> {stock > 0 ? 'In Stock' : 'Out Of Stock'}
-            </p>
-            <p className="info">
-              <span>Brand:</span> {company}
-            </p>
-            <hr />
-            {stock > 0 && <AddToCart product={product} />}
-          </section>
+              <Stars rating={rating} reviews={numOfReviews} />
+              <h5 className="price">{formatPrice(price)}</h5>
+              <p>{description}</p>
+              <p className="info">
+                <span>SKU:</span> {PID}
+              </p>
+              <p className="info">
+                <span>Available:</span>{' '}
+                {stock > 0 ? 'In Stock' : 'Out Of Stock'}
+              </p>
+              <p className="info">
+                <span>Brand:</span> {company}
+              </p>
+              <hr />
+              {stock > 0 && <AddToCart product={product} />}
+            </section>
+          </div>
         </div>
-      </div>
-      <Reviews />
-      <ReviewForm/>
-    </Wrapper>
+        <ReviewPage />
+      </Wrapper>
+    </>
   )
 }
 

@@ -5,12 +5,13 @@ import {
   Stars,
 
 } from '../components'
-const Review = ({ review }) => {
+const Review = ({review}) => {
+  const { id, comment, rating, title } = review
   return (
     <div >
-      <h4>{review.title}</h4>
-      <p>{review.comment}</p>
-      <Stars rating={review.rating} />
+      <h4>{title}</h4>
+      <p>{comment}</p>
+      <Stars rating={rating} />
     </div>
   )
 }

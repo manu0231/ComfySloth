@@ -1,31 +1,29 @@
 // Reviews.js
 import React, { useState, useEffect } from 'react'
 import Review from './singleReview'
+import Loading from './Loading'
+import { useProductsContext } from '../context/products_context'
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([])
-
-  useEffect(() => {
-    // Fetch reviews from the local JSON file
-    fetchReviews()
-  }, [])
-
-  const fetchReviews = async () => {
-    try {
-      const response = await fetch('../../reviews.json') // Update the path accordingly
-      const data = await response.json()
-      setReviews(data)
-    } catch (error) {
-      console.error('Error fetching reviews:', error)
-    }
-  }
-
+  const { single_product: product } = useProductsContext()
+  const { reviews } = product
   return (
     <div className="section-center">
       <h2>Reviews</h2>
-      {reviews.map((review, index) => (
-        <Review key={index} review={review} />
-      ))}
+
+      {reviews ? (
+        reviews.length > 0 ? (
+          reviews.map((item) => {
+            const { _id: id, comment, rating, title } = item // Destructure inside the map
+
+            return <Review key={id} review={{ id, comment, rating, title }} />
+          })
+        ) : (
+          <p>No reviews available</p>
+        )
+      ) : (
+        <Loading />
+      )}
     </div>
   )
 }

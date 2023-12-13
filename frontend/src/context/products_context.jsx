@@ -58,6 +58,7 @@ const ProductsProvider = ({ children }) => {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR })
     }
   }
+
   useEffect(() => {
     fetchProducts(`${url}`)
   }, [])
