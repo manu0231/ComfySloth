@@ -318,3 +318,10 @@ p {
   width: var(--max-width);
   margin: 3rem 20em;
 }
+
+
+.cart-wishlist {
+  display:  flex;
+  width: 400px;
+  justify-content: space-between;
+}

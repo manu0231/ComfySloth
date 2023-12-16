@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
+
 import { single_product_url as url } from '../utils/constants'
 import { formatPrice } from '../utils/helpers'
 import {
@@ -10,10 +11,12 @@ import {
   AddToCart,
   Stars,
   PageHero,
+
 } from '../components'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import ReviewPage from './ReviewPage'
+import { useCartContext } from '../context/cart_context'
 
 
 
@@ -28,9 +31,14 @@ const SingleProductPage = () => {
     fetchSingleProduct,
   } = useProductsContext()
 
+  const {  itemExistedInWishList } =
+    useCartContext();
+
+
   useEffect(() => {
     fetchSingleProduct(id)
     // console.log(product);
+    itemExistedInWishList(id)
   }, [id])
 
   useEffect(() => {

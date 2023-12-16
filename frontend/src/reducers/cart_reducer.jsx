@@ -4,6 +4,11 @@ import {
   COUNT_CART_TOTALS,
   REMOVE_CART_ITEM,
   TOGGLE_CART_ITEM_AMOUNT,
+  ADD_TO_WISHLIST,
+  REMOVE_WISHLIST_ITEM,
+  TOGGLE_WISHLIST_ITEM_AMOUNT,
+  CLEAR_WISHLIST,
+  COUNT_WISHLIST_TOTALS,
 } from '../actions'
 
 const cart_reducer = (state, action) => {
@@ -89,6 +94,70 @@ const cart_reducer = (state, action) => {
 
       return { ...state, cart: tempCart }
     }
+
+    //wishlist functions start
+    case ADD_TO_WISHLIST: {
+      const { id, color, amount, product } = action.payload
+
+      const newItem = {
+        id: id,
+        name: product.name,
+        color,
+        amount,
+        image: product.image,
+        price: product.price,
+        max: product.stock,
+      }
+
+      return { ...state, wishlist: [...state.wishlist, newItem] }
+    }
+    case REMOVE_WISHLIST_ITEM: {
+      const id = action.payload
+      const newWishlist = state.wishlist.filter((item) => item.id !== id)
+      return {
+        ...state,
+        wishlist: newWishlist,
+      }
+    }
+    case TOGGLE_WISHLIST_ITEM_AMOUNT: {
+      const { id, value } = action.payload
+      const newWishlist = state.wishlist.map((item) => {
+        if (item.id === id) {
+          let newAmount = item.amount + value
+          if (newAmount < 1) {
+            newAmount = 1 // Avoid negative or zero amounts
+          }
+          return { ...item, amount: newAmount }
+        }
+        return item
+      })
+      return {
+        ...state,
+        wishlist: newWishlist,
+      }
+    }
+    case CLEAR_WISHLIST: {
+      return {
+        ...state,
+        wishlist: [],
+      }
+    }
+
+    case 'ITEM_EXISTED_IN_WISHLIST': {
+      const { id } = action.payload
+      const itemExisted = state.wishlist.find((item) => {
+        // console.log(item)
+        return item.id === id
+      })
+
+      if (itemExisted) {
+        return { ...state, itemExisted: true }
+      } else {
+        return { ...state, itemExisted: false }
+      }
+    }
+
+    //wishlist functions end
   }
   // return state
   throw new Error(`No Matching "${action.type}" - action type`)

@@ -1,35 +1,37 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { FaCheck } from 'react-icons/fa'
-import { useCartContext } from '../context/cart_context'
-import AmountButtons from './AmountButtons'
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FaCheck } from "react-icons/fa";
+import { useCartContext } from "../context/cart_context";
+import AmountButtons from "./AmountButtons";
 
 const AddToCart = ({ product }) => {
-  const { id, stock, colors } = product
-  const [amount, setAmount] = useState(1)
-  const [mainColor, setMainColor] = useState(colors[1])
+  const { id, stock, colors } = product;
+  const [amount, setAmount] = useState(1);
+  const [mainColor, setMainColor] = useState(colors[1]);
 
-  const { addCartItem } = useCartContext()
+  const { addCartItem, addToWishlist, itemExisted } =
+    useCartContext();
+
 
   const increase = () => {
     setAmount((oldAmount) => {
-      let tempAmount = oldAmount + 1
+      let tempAmount = oldAmount + 1;
       if (tempAmount > stock) {
-        tempAmount = stock
+        tempAmount = stock;
       }
-      return tempAmount
-    })
-  }
+      return tempAmount;
+    });
+  };
   const decrease = () => {
     setAmount((oldAmount) => {
-      let tempAmount = oldAmount - 1
+      let tempAmount = oldAmount - 1;
       if (tempAmount < 1) {
-        tempAmount = 1
+        tempAmount = 1;
       }
-      return tempAmount
-    })
-  }
+      return tempAmount;
+    });
+  };
   return (
     <Wrapper>
       <div className="colors">
@@ -41,13 +43,13 @@ const AddToCart = ({ product }) => {
                 key={index}
                 style={{ background: color }}
                 className={`${
-                  mainColor === color ? 'color-btn active' : 'color-btn'
+                  mainColor === color ? "color-btn active" : "color-btn"
                 }`}
                 onClick={() => setMainColor(color)}
               >
                 {mainColor === color ? <FaCheck /> : null}
               </button>
-            )
+            );
           })}
         </div>
       </div>
@@ -57,17 +59,31 @@ const AddToCart = ({ product }) => {
           increase={increase}
           decrease={decrease}
         />
-        <Link
-          to="/cart"
-          className="btn"
-          onClick={() => addCartItem(id, amount, mainColor, product)}
-        >
-          add to cart
-        </Link>
+        <div className="cart-wishlist">
+          <Link
+            to="/cart"
+            className="btn"
+            onClick={() => addCartItem(id, amount, mainColor, product)}
+          >
+            add to cart
+          </Link>
+
+          {itemExisted ? (
+            <button className="btn">already in wishlist</button>
+          ) : (
+            <Link
+              to="/wishlist"
+              className="btn"
+              onClick={() => addToWishlist(id, amount, mainColor, product)}
+            >
+              add to wishlist
+            </Link>
+          )}
+        </div>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.section`
   margin-top: 2rem;
@@ -111,7 +127,7 @@ const Wrapper = styled.section`
 
   .btn {
     margin-top: 1rem;
-    width: 140px;
+    width: 180px;
   }
-`
-export default AddToCart
+`;
+export default AddToCart;

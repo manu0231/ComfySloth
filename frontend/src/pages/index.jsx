@@ -13,6 +13,8 @@ import Register from './Register'
 import ForgotPassword from './ForgotPassword'
 import ResetPasswordForm from './ResetPassword'
 import VerifyPage from './Verify'
+import WishListPage from './WishListPage'
+
 
 export {
   Home,
@@ -30,4 +32,5 @@ export {
   ForgotPassword,
   ResetPasswordForm,
   VerifyPage,
+  WishListPage
 }
