@@ -2,19 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import { useCartContext } from '../context/cart_context'
 import { Link } from 'react-router-dom'
-import CartColumns from './CartColumns'
-import CartItem from './CartItem'
+
+import { WishListItem, WishListColumn } from '../components'
+// import CartItem from './CartItem'
 
 const WishListContent = () => {
   const { wishlist, clearWishlist } = useCartContext()
   return (
     <Wrapper className="section section-center">
-      {/* <CartColumns />
+      <WishListColumn />
       {wishlist.map((item) => {
-        return <CartItem key={item.id} {...item} />
-      })} */}
-
-      
+        console.log(item)
+        return <WishListItem key={item.id} {...item} />
+      })}
       <hr />
       <div className="link-container">
         <Link to="/products" className="link-btn">

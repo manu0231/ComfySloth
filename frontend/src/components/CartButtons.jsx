@@ -1,5 +1,10 @@
 import React from 'react'
-import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
+import {
+  FaShoppingCart,
+  FaUserMinus,
+  FaUserPlus,
+  FaRegBookmark,
+} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
@@ -42,15 +47,19 @@ const CartButtons = () => {
           Login <FaUserPlus />
         </button>
       )}
+
+      <Link to="/wishlist" className="auth-btn">
+        <FaRegBookmark />
+      </Link>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  width: 225px;
+  width: 340px;
 
   .cart-btn {
     color: var(--clr-grey-1);

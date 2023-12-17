@@ -18,8 +18,8 @@ import CartContent from './CarContent'
 import PageHero from './PageHero'
 import StripeCheckout from './StripeCheckout'
 import WishListContent from './wishListContent'
-
-
+import WishListItem from './wishListItem'
+import WishListColumn from './WishListColumn'
 
 export {
   FeaturedProducts,
@@ -41,6 +41,7 @@ export {
   CartContent,
   PageHero,
   StripeCheckout,
-  WishListContent
-
+  WishListContent,
+  WishListItem,
+  WishListColumn,
 }
