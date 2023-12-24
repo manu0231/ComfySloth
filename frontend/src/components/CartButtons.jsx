@@ -19,6 +19,10 @@ const CartButtons = () => {
   const { loginWithRedirect, logout, myUser, isUserLoggedIn } = useUserContext()
   return (
     <Wrapper className="cart-btn-wrapper">
+      <Link to="/wishlist" className="auth-btn">
+        {/* <FaRegBookmark /> */}
+        wishlist
+      </Link>
       <Link to="/cart" className="cart-btn" onClick={CloseSidebar}>
         cart
         <span className="cart-container">
@@ -47,10 +51,6 @@ const CartButtons = () => {
           Login <FaUserPlus />
         </button>
       )}
-
-      <Link to="/wishlist" className="auth-btn">
-        <FaRegBookmark />
-      </Link>
     </Wrapper>
   )
 }
