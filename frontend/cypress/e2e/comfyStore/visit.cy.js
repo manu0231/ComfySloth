@@ -55,11 +55,32 @@ visiting the "about" page on a website. */
 
     let productCount
 
+    // Get the initial product count
     cy.get('article')
       .its('length')
       .then((count) => {
+        // Assign the initial product count
         productCount = count
+
+        // Log the initial product count
+        cy.log(productCount)
+
+        // Click on 'office'
+        cy.get('form')
+          .contains('Category')
+          .siblings()
+          .contains('office')
+          .click()
+
+        // Log the updated product count after the filter is applied
+        cy.get('article')
+          .its('length')
+          .then((updatedCount) => {
+            cy.log(updatedCount)
+
+            // Check if the product count has changed
+            cy.get('article').should('not.have.length', productCount)
+          })
       })
-    // Check if the product count has changed
   })
 })
