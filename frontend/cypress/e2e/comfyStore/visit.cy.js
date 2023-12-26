@@ -1,4 +1,4 @@
-// myFirstTest.spec.js
+// <reference types="cypress" />
 
 describe('comfyStore', () => {
   beforeEach('Visits the home page', () => {
@@ -82,5 +82,10 @@ visiting the "about" page on a website. */
             cy.get('article').should('not.have.length', productCount)
           })
       })
+
+    cy.get('.clear-btn').click()
+
+    cy.get('#shipping').check()
+    cy.get('.clear-btn').click()
   })
 })
