@@ -124,7 +124,6 @@ const login = async (req, res) => {
 }
 
 const logout = async (req, res) => {
-  console.log(req.user)
   await Token.findOneAndDelete({ user: req.user.userId })
 
   res.cookie('accessToken', 'logout', {

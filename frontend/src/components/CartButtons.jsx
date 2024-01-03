@@ -20,7 +20,6 @@ const CartButtons = () => {
   return (
     <Wrapper className="cart-btn-wrapper">
       <Link to="/wishlist" className="auth-btn">
-        {/* <FaRegBookmark /> */}
         wishlist
       </Link>
       <Link to="/cart" className="cart-btn" onClick={CloseSidebar}>

@@ -19,8 +19,9 @@ import {
   ForgotPassword,
   ResetPasswordForm,
   VerifyPage,
-  WishListPage
+  WishListPage,
 } from './pages'
+import Admin from './pages/Admin'
 
 function App() {
   const { isLoading, error } = useAuth0()
@@ -43,6 +44,14 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoutes>
+                <Admin />
+              </PrivateRoutes>
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

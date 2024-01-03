@@ -8,7 +8,7 @@ const Reviews = () => {
   const { single_product: product } = useProductsContext()
   const { reviews } = product
   return (
-    <div className="section-center">
+    <div className="section-center reviews">
       <h2>Reviews</h2>
 
       {reviews ? (

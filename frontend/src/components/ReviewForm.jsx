@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import StarRating from './starRating'
 import { useParams } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+
 import axios from 'axios'
 // import { addReview } from '../redux/slice/reviewSlice'
 
 const ReviewForm = () => {
   const { id } = useParams()
-  const dispatch = useDispatch()
+
   const [formData, setFormData] = useState({
     title: '',
     comment: '',
@@ -18,7 +18,7 @@ const ReviewForm = () => {
   const addReviews = async () => {
     try {
       const response = await axios.post(`/api/v1/review`, formData)
-      console.log(response.data)
+      // console.log(response.data)
 
       //setup local State for success
     } catch (error) {
@@ -47,8 +47,9 @@ const ReviewForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="form section-center review-align">
-      <h4>Add Reviews</h4>
+    <form onSubmit={handleSubmit} className="form section review-align">
+      <hr />
+      <h4 className="reviews">Add Reviews</h4>
       <div className="form-row">
         <span className="form-label">
           Title:

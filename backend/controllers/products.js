@@ -96,14 +96,17 @@ const uploadfile = async (req, res) => {
     throw new customError.BadRequest('Image must be smaller than 1mb')
   }
 
-  const imagepath = path.join(
-    __dirname,
-    '../public/uploads/',
-    `${productimage.name}`
-  )
+  // Get the current timestamp
+  const currentTimeStamp = new Date().getTime()
+  // Generate a unique filename using 'image' and the current timestamp
+  const fileName = `image${currentTimeStamp}${path.extname(productimage.name)}`
+
+  const imagepath = path.join(__dirname, '../public/uploads/', fileName)
   await productimage.mv(imagepath)
 
-  res.status(StatusCodes.OK).json({ image: `/uploads/${productimage.name}` })
+  res
+    .status(StatusCodes.OK)
+    .json({ image: `http://localhost:3000/api/v1/products/fetch/${fileName}` })
 }
 
 // Route to fetch uploaded file

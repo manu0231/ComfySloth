@@ -11,17 +11,14 @@ import {
   AddToCart,
   Stars,
   PageHero,
-
 } from '../components'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import ReviewPage from './ReviewPage'
 import { useCartContext } from '../context/cart_context'
 
-
-
 const SingleProductPage = () => {
- const { id } = useParams()
+  const { id } = useParams()
   const navigate = useNavigate()
   // console.log(id)
   const {
@@ -31,9 +28,7 @@ const SingleProductPage = () => {
     fetchSingleProduct,
   } = useProductsContext()
 
-  const {  itemExistedInWishList } =
-    useCartContext();
-
+  const { itemExistedInWishList } = useCartContext()
 
   useEffect(() => {
     fetchSingleProduct(id)
@@ -99,8 +94,8 @@ const SingleProductPage = () => {
               {stock > 0 && <AddToCart product={product} />}
             </section>
           </div>
+          <ReviewPage />
         </div>
-        <ReviewPage />
       </Wrapper>
     </>
   )

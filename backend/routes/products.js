@@ -14,12 +14,20 @@ const {
 
 const { getSingleProductreviews } = require('../controllers/reviewController')
 
-router.route('/').post(createProduct).get(getAllProducts)
+const {
+  authenticateUser,
+  authorizePermissions,
+} = require('../middleware/authHandler')
+
+router
+  .route('/')
+  .post(authenticateUser, authorizePermissions('admin'), createProduct)
+  .get(getAllProducts)
 
 router.route('/:id').get(getProduct).patch(updateProduct).delete(deleteProduct)
 
-// router.route('/upload').post(uploadfile)
-// router.route('/upload').post(uploadImage)
+router.route('/upload').post(uploadfile)
+
 router.route('/fetch/:fileName').get(getImage)
 
 router.route('/:id/reviews').get(getSingleProductreviews)

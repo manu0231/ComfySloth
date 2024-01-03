@@ -28,18 +28,24 @@ describe('wishlist', () => {
 
     cy.get('.amount').siblings().last().click()
 
-    cy.get('a').contains('add to wishlist').click()
+    cy.get('a').contains('add to wishlist').as('addToWishlist').click()
 
     cy.url().should('eq', 'http://localhost:5173/wishlist')
 
-    cy.get('a').contains('Continue Shopping').click()
+    cy.get('a').contains('Continue Shopping').as('backToProductPage').click()
 
     cy.get('h5').contains('accent chair').parent().siblings().find('a').click()
 
     cy.get('button').contains('already in wishlist').should('exist')
 
     cy.get('a').contains('wishlist').click()
-    cy.get('.gczTMC').last().find('.remove-btn').click()
+
+    cy.get('@backToProductPage').click()
+
+    cy.get('h5').contains('armchair').parent().siblings().find('a').click()
+
+    cy.get('@addToWishlist').click()
+    // cy.get('.gczTMC').last().find('.remove-btn').click()
   })
 
   // it('clear wishlist', () => {

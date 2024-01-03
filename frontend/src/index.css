@@ -295,6 +295,9 @@ p {
   max-width: var(--fixed-width);
   text-align: center;
   text-transform: capitalize;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .alert-danger {
@@ -306,22 +309,47 @@ p {
   background: var(--green-light);
 }
 
+.alert > p {
+  margin-bottom: 0px;
+}
+
+.close {
+  font-size: 2rem;
+  background: none;
+  border: 0px;
+}
 .review-form {
-  width: 350px;
+  width: 22rem;
   position: absolute;
   /* margin: 0 0; */
   /* background: #222; */
-  padding: 2rem 2rem;
+  /* padding: 2rem 2rem; */
 }
 
 .review-align {
   width: var(--max-width);
-  margin: 3rem 20em;
+  margin: 0;
+  padding: 0;
 }
 
-
 .cart-wishlist {
-  display:  flex;
+  display: flex;
   width: 400px;
   justify-content: space-between;
+}
+
+.product-form {
+  width: 60rem;
+}
+
+.form-checkbox {
+  margin-right: 10px; /* Adjust spacing between checkbox and label */
+  font-size: 20px; /* Increase the font size of the checkbox */
+  /* Additional styles to control size if needed */
+  width: 40px;
+  height: 20px;
+}
+
+.reviews {
+  margin-top: 5rem;
 }

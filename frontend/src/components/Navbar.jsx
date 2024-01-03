@@ -31,9 +31,14 @@ const Nav = () => {
               </li>
             )
           })}
-          {myUser && (
+          {myUser && myUser.role !== 'admin' && (
             <li>
               <Link to="/checkout">Checkout</Link>
+            </li>
+          )}
+          {myUser && myUser.role === 'admin' && (
+            <li>
+              <Link to="/admin">AddProduct</Link>
             </li>
           )}
         </ul>

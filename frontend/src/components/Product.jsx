@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const Product = ({ image, id, name, price }) => {
-  
   return (
     <Wrapper>
       <div className="container">
@@ -14,6 +13,12 @@ const Product = ({ image, id, name, price }) => {
         <Link to={`/products/${id}`} className="link">
           <FaSearch />
         </Link>
+        <button
+          onClick={() => console.log(id)}
+          className=" link delete-product"
+        >
+          <FaTrash />
+        </button>
       </div>
       <footer>
         <h5>{name}</h5>
@@ -50,10 +55,22 @@ const Wrapper = styled.article`
     border-radius: 50%;
     transition: var(--transition);
     opacity: 0;
+
     cursor: pointer;
     svg {
       font-size: 1.25rem;
       color: var(--clr-white);
+    }
+  }
+
+  .delete-product {
+    top: 12%;
+    left: 92%;
+    background: none;
+    border: none;
+    svg {
+      font-size: 1.25rem;
+      color: var(--clr-red-dark);
     }
   }
   .container:hover img {
