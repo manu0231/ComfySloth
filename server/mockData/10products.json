@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Wooden Bed",
+    "price": 20000,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#ff0000", "#00ff00", "#0000ff"],
+    "company": "Marcos",
+    "stock": 3,
+    "featured": true,
+    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge",
+    "category": "Office"
+  },
+  {
+    "name": "Leather Sofa",
+    "price": 1500,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#000000", "#a52a2a", "#696969"],
+    "company": "Liddy",
+    "stock": 8,
+    "featured": false,
+    "description": "Plush leather sofa with comfortable seating for the whole family. Perfect for cozy movie nights and relaxation.",
+    "category": "Living Room"
+  },
+  {
+    "name": "Glass Dining Table",
+    "price": 800,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#808080", "#d3d3d3", "#f5f5f5"],
+    "company": "Caressa",
+    "stock": 5,
+    "featured": true,
+    "description": "Modern glass dining table with a sleek design, ideal for contemporary dining spaces.",
+    "category": "Dining"
+  },
+  {
+    "name": "Oak Bookshelf",
+    "price": 600,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#8b4513", "#a0522d", "#deb887"],
+    "company": "Ikea",
+    "stock": 10,
+    "featured": true,
+    "description": "Sturdy oak bookshelf with ample space for organizing your book collection and decor items.",
+    "category": "Home Office"
+  },
+  {
+    "name": "Velvet Armchair",
+    "price": 1200,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#800080", "#9932cc", "#8a2be2"],
+    "company": "Marcos",
+    "stock": 4,
+    "featured": false,
+    "description": "Luxurious velvet armchair that adds a touch of elegance to any room. Sink into comfort and style.",
+    "category": "Lounge"
+  },
+  {
+    "name": "Metallic Coffee Table",
+    "price": 350,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#c0c0c0", "#a9a9a9", "#dcdcdc"],
+    "company": "Liddy",
+    "stock": 12,
+    "featured": true,
+    "description": "Sleek and modern coffee table with metallic accents, perfect for contemporary living spaces.",
+    "category": "Living Room"
+  },
+  {
+    "name": "Outdoor Patio Set",
+    "price": 2500,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#008000", "#228b22", "#32cd32"],
+    "company": "Caressa",
+    "stock": 6,
+    "featured": true,
+    "description": "Weather-resistant patio set for outdoor gatherings. Durable and stylish for all seasons.",
+    "category": "Outdoor"
+  },
+  {
+    "name": "Cherry Wood Dresser",
+    "price": 900,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#8b0000", "#b22222", "#cd5c5c"],
+    "company": "Liddy",
+    "stock": 7,
+    "featured": false,
+    "description": "Classic cherry wood dresser with multiple drawers for convenient storage.",
+    "category": "Bedroom"
+  },
+  {
+    "name": "Rustic Dining Chairs",
+    "price": 400,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#996515", "#8b4513", "#d2b48c"],
+    "company": "Ikea",
+    "stock": 15,
+    "featured": true,
+    "description": "Set of four rustic dining chairs, perfect for creating a warm and inviting dining space.",
+    "category": "Dining"
+  },
+  {
+    "name": "Adjustable Standing Desk",
+    "price": 350,
+    "image": "http://localhost:3000/api/v1/products/fetch/couch.jpeg",
+    "colors": ["#2e8b57", "#3cb371", "#008080"],
+    "company": "Marcos",
+    "stock": 20,
+    "featured": false,
+    "description": "Ergonomic adjustable standing desk for a comfortable and productive work environment.",
+    "category": "Office"
+  }
+]

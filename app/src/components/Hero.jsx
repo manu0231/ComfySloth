@@ -14,9 +14,10 @@ const Hero = () => {
           Comfort Zone
         </h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste
-          numquam, fugit voluptatem minima, ducimus quia tenetur, neque quis
-          modi qui deleniti perspiciatis sequi.
+          At ComfySloth, we believe in the magic of comfort and the joy of
+          embracing a slow, cozy lifestyle. Our story is one of relaxation,
+          warmth, and effortless style, inspired by the tranquil nature of
+          sloths and their leisurely approach to life.
         </p>
         <Link to="/products">
           <button className="btn hero-btn">Shop Now</button>
