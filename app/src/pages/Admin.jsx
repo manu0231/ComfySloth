@@ -69,7 +69,7 @@ const Admin = () => {
         featured: formData.featured,
         description: formData.description,
         category: formData.category,
-        image: imageResponse.image, // Update to use the correct property from the server response
+        image: imageResponse.image,
       }
 
       // Create product on the server
@@ -97,7 +97,7 @@ const Admin = () => {
   }
   return (
     <main>
-      <PageHero title="admin" />
+      <PageHero title="add Product" />
       <div className="page section section-center form product-form ">
         {alert.show && (
           <div className={`alert alert-${alert.type}`}>

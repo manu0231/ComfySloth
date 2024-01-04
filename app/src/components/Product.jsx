@@ -4,8 +4,15 @@ import { formatPrice } from '../utils/helpers'
 import { FaSearch, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useUserContext } from '../context/user_context'
+import { useProductsContext } from '../context/products_context'
 
 const Product = ({ image, id, name, price }) => {
+  const { myUser } = useUserContext() 
+  const { handleDeleteButton } = useProductsContext()
+  // const handleDeleteButton = async (id) => {
+  //   await axios.delete(`/api/v1/products/${id}`)
+  // }
   return (
     <Wrapper>
       <div className="container">
@@ -13,12 +20,14 @@ const Product = ({ image, id, name, price }) => {
         <Link to={`/products/${id}`} className="link">
           <FaSearch />
         </Link>
-        <button
-          onClick={() => console.log(id)}
-          className=" link delete-product"
-        >
-          <FaTrash />
-        </button>
+        {myUser && myUser.role === 'admin' && (
+          <button
+            onClick={() => handleDeleteButton(id)}
+            className=" link delete-product"
+          >
+            <FaTrash />
+          </button>
+        )}
       </div>
       <footer>
         <h5>{name}</h5>

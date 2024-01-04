@@ -59,6 +59,11 @@ const ProductsProvider = ({ children }) => {
     }
   }
 
+  const handleDeleteButton = async (id) => {
+    await axios.delete(`/api/v1/products/${id}`)
+    fetchProducts()
+  }
+
   useEffect(() => {
     fetchProducts(`${url}`)
   }, [])
@@ -66,7 +71,13 @@ const ProductsProvider = ({ children }) => {
   // fetchSingleProduct(url,"63a5bf40c57687c2dc844763")
   return (
     <ProductsContext.Provider
-      value={{ ...state, OpenSidebar, CloseSidebar, fetchSingleProduct }}
+      value={{
+        ...state,
+        OpenSidebar,
+        CloseSidebar,
+        fetchSingleProduct,
+        handleDeleteButton,
+      }}
     >
       {children}
     </ProductsContext.Provider>

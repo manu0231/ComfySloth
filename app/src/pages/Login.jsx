@@ -82,12 +82,6 @@ function Login() {
               Register
             </Link>
           </p>
-          <p>
-            Forgot your password?{' '}
-            <Link to="/forgot-password" className="reset-link">
-              Reset Password
-            </Link>
-          </p>
         </form>
       </Wrapper>
     </>
