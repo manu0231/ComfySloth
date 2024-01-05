@@ -18,7 +18,7 @@ import CartContent from './CarContent'
 import PageHero from './PageHero'
 import StripeCheckout from './StripeCheckout'
 import WishListContent from './WishListContent'
-import WishListItem from './wishListItem'
+import WishListItem from './WishListItem'
 import WishListColumn from './WishListColumn'
 
 export {
