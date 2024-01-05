@@ -38,12 +38,12 @@ const errorHandlerMiddleware = require('./middleware/errorHandlerMiddleware')
 const notfound = require('./middleware/notfoundMiddleware')
 
 app.set('trust proxy', 1)
-// app.use(
-//   rateLimiter({
-//     windowMs: 15 * 60 * 1000,
-//     max: 60,
-//   })
-// )
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000,
+    max: 60,
+  })
+)
 
 const corsOptions = {
   // origin: 'http://localhost:8888',
