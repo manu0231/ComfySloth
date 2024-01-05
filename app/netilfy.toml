@@ -2,7 +2,7 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/api"
+  from = "/api*"
   to = "https://storeserver-production-bc7e.up.railway.app"
   status = 200
   force = true
