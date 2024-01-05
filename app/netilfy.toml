@@ -2,8 +2,7 @@
 # netlify.toml
 
 [build]
-  base = "/"
-  publish = "comfySloth/app"
+  publish = "dist"
   command = "npm run build"
   functions = "./netlify/functions"
 
