@@ -3,7 +3,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://storeserver-production-bc7e.up.railway.app"
+  to = "https://storeserver-production-bc7e.up.railway.app/api/v1"
   status = 200
   force = true
 
