@@ -5,7 +5,7 @@ const Review = require('./models/review')
 const User = require('./models/User')
 
 // const jsonProducts = require('./mockData/products.json')
-const jsonProducts = require('./mockData/products.json')
+const jsonProducts = require('./mockData/products10.json')
 
 const start = async () =>{
     try {

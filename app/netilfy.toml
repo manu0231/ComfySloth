@@ -1,3 +1,16 @@
-[build]
 
-functions = "./netlify/functions"
+# netlify.toml
+
+[build]
+  base = "/"
+  publish = "comfySloth/app"
+  command = "npm run build"
+  functions = "./netlify/functions"
+
+[[build.environment]]
+  name = "VITE_STRIPE_PUBLIC_KEY"
+  value = "pk_test_51MNXIVSA8sRIIEU2royAMOd0yeSoWAgHTEPjr0o8xGAeBFADb56uhTI6XO92TDWskCraXe2oe6vTYOZMYjJ6GicN002zi0la1g"
+
+[[build.environment]]
+  name = "VITE_STRIPE_SECRET_KEY"
+  value = "sk_test_51MNXIVSA8sRIIEU2cAfFqEegfyNQiUqc6IBVcQd164WaONwOczeN1D9SQYyNKs00841nOSTVZaVLGYWPXkL8pE6A00zRhRSGjR"
