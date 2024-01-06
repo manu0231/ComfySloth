@@ -81,5 +81,8 @@ Feel free to explore and enjoy the Comfy Sloth application!
 
 
 
+![Screenshot 2024-01-06 at 14-03-53 Comfy Sloth](https://github.com/manu0231/ComfySloth/assets/53123585/d7ad8610-15d5-463e-a0ce-f17f12fa293a)
+
+
 
 
