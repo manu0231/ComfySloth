@@ -1,8 +1,8 @@
 module.exports = {
-  host: 'smtp.ethereal.email',
+  host: 'smtp.gmail.com', // Correct SMTP server host for Gmail
   port: 587,
   auth: {
-    user: 'mikayla.carter@ethereal.email',
-    pass: 'DJSXFXmSPhe3Rp1FdT',
+    user: '3alphaat@gmail.com',
+    pass: 'fgqd ocpp ctwa wrlj',
   },
 }

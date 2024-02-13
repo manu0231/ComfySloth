@@ -32,8 +32,8 @@ const register = async (req, res) => {
     role,
     verificationToken,
   })
-  const origin = 'http://localhost:8888'
-  // const newOrigin = 'https://react-node-user-workflow-front-end.netlify.app';
+  // const origin = 'http://localhost:8888'
+  const newOrigin = 'https://comfyslothupgrad.netlify.app'
 
   // const tempOrigin = req.get('origin');
   // const protocol = req.protocol
@@ -56,21 +56,27 @@ const register = async (req, res) => {
 const verifyEmail = async (req, res) => {
   const { verificationToken, email } = req.body
 
+  // Find the user in the database based on the provided email
   const user = await User.findOne({ email })
 
+  // If the user is not found, throw an UnauthenticatedError
   if (!user) {
     throw new CustomError.UnauthenticatedError('Verification Failed')
   }
 
+  // Check if the verificationToken matches the one stored in the user object
   if (user.verificationToken !== verificationToken) {
     throw new CustomError.UnauthenticatedError('Verification Failed')
   }
 
-  ;(user.isVerified = true), (user.verified = Date.now())
+  // If the verification is successful, update user properties and save to the database
+  user.isVerified = true
+  user.verified = Date.now()
   user.verificationToken = ''
 
   await user.save()
 
+  // Respond with a success message
   res.status(StatusCodes.OK).json({ msg: 'Email Verified' })
 }
 

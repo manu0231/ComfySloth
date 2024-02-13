@@ -1,9 +1,9 @@
-
 {
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "https://storeserver-production-bc7e.up.railway.app/api/$1",
+
       "methods": ["GET", "POST", "PUT", "DELETE"]
     },
     {
